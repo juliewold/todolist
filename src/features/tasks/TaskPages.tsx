@@ -42,6 +42,7 @@ export function TodayPage() {
       footer={habits.length > 0 ? <TodayHabits habits={habits} today={today} /> : null}
     >
       <TodayProgress done={grouped.done} total={grouped.total} />
+      <h2 className="section-title">Dagens oppgaver</h2>
     </TasksView>
   );
 }

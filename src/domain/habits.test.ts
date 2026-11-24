@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   computeHabitStats,
+  countActiveDaysPerMonth,
+  getUnitLabel,
   getEntryValue,
   getGoalProgress,
   getIntensityLevel,
@@ -167,5 +169,28 @@ describe("computeHabitStats", () => {
   it("ignores entries for other habits", () => {
     const entries = [entry("other", today, 30)];
     expect(computeHabitStats(duration, entries, today).activeDays).toBe(0);
+  });
+});
+
+describe("countActiveDaysPerMonth", () => {
+  it("counts registered days per month", () => {
+    const entries = [
+      entry("h1", "2026-01-02", 20),
+      entry("h1", "2026-11-03", 20),
+      entry("h1", "2026-11-04", 0),
+      entry("h1", "2025-11-04", 20),
+    ];
+    const counts = countActiveDaysPerMonth(entries, "h1", 2026);
+    expect(counts[0]).toBe(1);
+    expect(counts[10]).toBe(1);
+    expect(counts.reduce((sum, value) => sum + value, 0)).toBe(2);
+  });
+});
+
+describe("getUnitLabel", () => {
+  it("describes the unit for each habit kind", () => {
+    expect(getUnitLabel(duration)).toBe("minutter");
+    expect(getUnitLabel(yesNo)).toBe("");
+    expect(getUnitLabel(weekly)).toBe("min");
   });
 });

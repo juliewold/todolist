@@ -72,3 +72,12 @@ export function formatShortDate(isoDate: string, locale = "nb-NO"): string {
     month: "short",
   }).format(parseIsoDate(isoDate));
 }
+
+/** Builds the ISO date for a year, zero-based month index and day of month. */
+export function isoDateOf(year: number, monthIndex: number, day: number): string {
+  return `${year}-${String(monthIndex + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+export function todayIso(now: Date = new Date()): string {
+  return toIsoDate(now);
+}

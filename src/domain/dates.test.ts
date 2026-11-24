@@ -4,6 +4,7 @@ import {
   daysInMonth,
   diffDays,
   isIsoDate,
+  isoDateOf,
   startOfIsoWeek,
   toIsoDate,
 } from "./dates";
@@ -47,5 +48,11 @@ describe("daysInMonth", () => {
     expect(daysInMonth(2028, 1)).toBe(29);
     expect(daysInMonth(2026, 1)).toBe(28);
     expect(daysInMonth(2026, 10)).toBe(30);
+  });
+});
+
+describe("isoDateOf", () => {
+  it("builds ISO dates from year, month index and day", () => {
+    expect(isoDateOf(2026, 10, 4)).toBe("2026-11-04");
   });
 });

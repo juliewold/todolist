@@ -211,3 +211,32 @@ export function getGoalProgress(habit: Habit, entries: readonly HabitEntry[], da
   const total = getPeriodTotal(habit, entries, date);
   return Math.min(1, total / goalThreshold(habit));
 }
+
+/** Number of days with a registered value in each month of `year` (index 0 = January). */
+export function countActiveDaysPerMonth(
+  entries: readonly HabitEntry[],
+  habitId: string,
+  year: number,
+): number[] {
+  const counts = Array.from({ length: 12 }, () => 0);
+  for (const entry of entries) {
+    if (entry.habitId !== habitId || entry.value <= 0 || getYear(entry.date) !== year) {
+      continue;
+    }
+    const month = Number(entry.date.slice(5, 7)) - 1;
+    counts[month] = (counts[month] ?? 0) + 1;
+  }
+  return counts;
+}
+
+/** Unit used when describing a habit's value and goal, e.g. "minutter" or "sider". */
+export function getUnitLabel(habit: Habit): string {
+  switch (habit.kind) {
+    case "yesNo":
+      return "";
+    case "duration":
+      return "minutter";
+    case "quantity":
+      return habit.unit;
+  }
+}

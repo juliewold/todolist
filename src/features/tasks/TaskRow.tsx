@@ -59,7 +59,10 @@ export function TaskRow({ task, list, showDate, onToggle, onOpen, sortable }: Ta
               <span className="task-row__date">{formatShortDate(task.dueDate)}</span>
             ) : null}
             {list ? (
-              <span className="tag" style={{ color: list.color, backgroundColor: `${list.color}22` }}>
+              <span
+                className="tag"
+                style={{ color: list.color, backgroundColor: `${list.color}22` }}
+              >
                 <span className="tag__dot" style={{ backgroundColor: list.color }} />
                 {list.name}
               </span>

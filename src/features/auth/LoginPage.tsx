@@ -48,7 +48,11 @@ export function LoginPage() {
               }}
             />
           </label>
-          {error ? <p className="field__error" role="alert">{error}</p> : null}
+          {error ? (
+            <p className="field__error" role="alert">
+              {error}
+            </p>
+          ) : null}
           <Button variant="primary" type="submit" disabled={busy}>
             {busy ? "Logger inn …" : "Logg inn"}
           </Button>

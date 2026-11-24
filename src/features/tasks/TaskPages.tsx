@@ -2,7 +2,13 @@ import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "../../app/useData";
 import { formatLongDate, todayIso } from "../../domain/dates";
-import { selectCompletedTasks, selectOpenTasks, selectTasksForList, selectTodayTasks, selectUpcomingTasks } from "../../domain/taskSelectors";
+import {
+  selectCompletedTasks,
+  selectOpenTasks,
+  selectTasksForList,
+  selectTodayTasks,
+  selectUpcomingTasks,
+} from "../../domain/taskSelectors";
 import { TodayHabits } from "../habits/TodayHabits";
 import { TasksView, TodayProgress } from "./TasksView";
 import { TaskList } from "./TaskList";

@@ -58,9 +58,10 @@ export function createLocalRepository(
         ...snapshot.taskLists.map((list): SnapshotAction => ({ type: "upsertTaskList", list })),
         { type: "upsertTasks", tasks: snapshot.tasks },
         ...snapshot.habits.map((habit): SnapshotAction => ({ type: "upsertHabit", habit })),
-        ...snapshot.habitEntries.map(
-          (entry): SnapshotAction => ({ type: "upsertHabitEntry", entry }),
-        ),
+        ...snapshot.habitEntries.map((entry): SnapshotAction => ({
+          type: "upsertHabitEntry",
+          entry,
+        })),
       ),
   };
 }

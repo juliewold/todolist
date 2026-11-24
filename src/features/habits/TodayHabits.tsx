@@ -4,7 +4,12 @@ import { CompletionCircle } from "../../components/CompletionCircle";
 import { ProgressBar } from "../../components/ProgressBar";
 import { useData } from "../../app/useData";
 import { HABIT_COLORS } from "../../domain/colors";
-import { getEntryValue, getGoalProgress, getRepresentativeValue, getUnitLabel } from "../../domain/habits";
+import {
+  getEntryValue,
+  getGoalProgress,
+  getRepresentativeValue,
+  getUnitLabel,
+} from "../../domain/habits";
 import type { Habit } from "../../domain/types";
 import { HabitIcon } from "./HabitIcon";
 
@@ -52,7 +57,11 @@ export function TodayHabits({ habits, today }: TodayHabitsProps) {
                     <ChevronRight size={14} aria-hidden="true" className="today-habit__chevron" />
                   </span>
                   <span className="muted">{description}</span>
-                  <ProgressBar value={progress} color={color} label={`Fremdrift for ${habit.name}`} />
+                  <ProgressBar
+                    value={progress}
+                    color={color}
+                    label={`Fremdrift for ${habit.name}`}
+                  />
                 </span>
               </button>
               <CompletionCircle

@@ -125,8 +125,7 @@ export function AppShell({ children }: AppShellProps) {
 
         <nav className="bottom-nav" aria-label="Bunnmeny">
           <NavLink to="/i-dag" className="bottom-nav__item">
-            <Sun size={22} aria-hidden="true" />
-            I dag
+            <Sun size={22} aria-hidden="true" />I dag
           </NavLink>
           <NavLink to="/kommende" className="bottom-nav__item">
             <CalendarDays size={22} aria-hidden="true" />

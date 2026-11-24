@@ -78,7 +78,9 @@ export function HabitsPage() {
       {selected ? (
         <HabitDetail key={selected.id} habit={selected} />
       ) : (
-        <EmptyState title="Ingen vaner ennå">Legg til en vane for å begynne å registrere.</EmptyState>
+        <EmptyState title="Ingen vaner ennå">
+          Legg til en vane for å begynne å registrere.
+        </EmptyState>
       )}
 
       {creating ? (
@@ -121,8 +123,7 @@ function HabitDetail({ habit }: HabitDetailProps) {
   const monthly = countActiveDaysPerMonth(entries, habit.id, year);
   const maxMonthly = Math.max(1, ...monthly);
   const unit = getUnitLabel(habit);
-  const legendLevels: IntensityLevel[] =
-    habit.kind === "yesNo" ? [0, 4] : [0, 1, 2, 3, 4, 5];
+  const legendLevels: IntensityLevel[] = habit.kind === "yesNo" ? [0, 4] : [0, 1, 2, 3, 4, 5];
   const color = HABIT_COLORS[habit.color];
   const yearOptions = [getYear(today), getYear(today) - 1, getYear(today) - 2];
 
@@ -133,11 +134,7 @@ function HabitDetail({ habit }: HabitDetailProps) {
       return;
     }
     const isSameLevel = value > 0 && getIntensityLevel(habit, value) === level;
-    actions.setHabitValue(
-      habit.id,
-      date,
-      isSameLevel ? 0 : getRepresentativeValue(habit, level),
-    );
+    actions.setHabitValue(habit.id, date, isSameLevel ? 0 : getRepresentativeValue(habit, level));
   };
 
   return (
@@ -167,7 +164,9 @@ function HabitDetail({ habit }: HabitDetailProps) {
           <h2>{habit.name}</h2>
           <p className="muted">
             Årsoversikt · {year}
-            {habit.target ? ` · Mål: ${habit.target} ${unit} ${habit.goalPeriod === "daily" ? "daglig" : "per uke"}` : ""}
+            {habit.target
+              ? ` · Mål: ${habit.target} ${unit} ${habit.goalPeriod === "daily" ? "daglig" : "per uke"}`
+              : ""}
           </p>
         </div>
         <Button

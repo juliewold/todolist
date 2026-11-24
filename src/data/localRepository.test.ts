@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { createLocalRepository, createEmptySnapshot, type KeyValueStorage } from "./localRepository";
+import {
+  createLocalRepository,
+  createEmptySnapshot,
+  type KeyValueStorage,
+} from "./localRepository";
 import { parseSnapshot } from "../domain/snapshotSchema";
 import type { Habit, Task } from "../domain/types";
 

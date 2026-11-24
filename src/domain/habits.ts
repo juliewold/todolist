@@ -95,11 +95,7 @@ export function isGoalMet(habit: Habit, total: number): boolean {
 }
 
 /** Sum of entries for the period containing `date` (day or ISO week). */
-export function getPeriodTotal(
-  habit: Habit,
-  entries: readonly HabitEntry[],
-  date: string,
-): number {
+export function getPeriodTotal(habit: Habit, entries: readonly HabitEntry[], date: string): number {
   const matches = (entryDate: string): boolean => {
     if (habit.goalPeriod === "daily") {
       return entryDate === date;
@@ -145,7 +141,11 @@ function periodKey(habit: Habit, date: string): string {
   return habit.goalPeriod === "daily" ? date : startOfIsoWeek(date);
 }
 
-function getMetPeriodKeys(habit: Habit, entries: readonly HabitEntry[], today: string): Set<string> {
+function getMetPeriodKeys(
+  habit: Habit,
+  entries: readonly HabitEntry[],
+  today: string,
+): Set<string> {
   const totals = new Map<string, number>();
   for (const entry of entries) {
     if (entry.habitId !== habit.id || entry.date > today) {
@@ -207,7 +207,11 @@ export function getEntryValue(
 }
 
 /** Progress from 0 to 1 towards the goal for the period containing `date`. */
-export function getGoalProgress(habit: Habit, entries: readonly HabitEntry[], date: string): number {
+export function getGoalProgress(
+  habit: Habit,
+  entries: readonly HabitEntry[],
+  date: string,
+): number {
   const total = getPeriodTotal(habit, entries, date);
   return Math.min(1, total / goalThreshold(habit));
 }

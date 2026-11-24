@@ -199,9 +199,8 @@ export function createSupabaseRepository(client: SupabaseClient): TodoRepository
       }
       if (snapshot.habitEntries.length > 0) {
         ensureOk(
-          (
-            await client.from("habit_entries").upsert(snapshot.habitEntries.map(fromHabitEntry))
-          ).error,
+          (await client.from("habit_entries").upsert(snapshot.habitEntries.map(fromHabitEntry)))
+            .error,
         );
       }
     },

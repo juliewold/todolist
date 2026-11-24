@@ -81,7 +81,10 @@ export function SettingsPage() {
 
       <section className="card settings-card">
         <h2 className="section-title">Data</h2>
-        <p className="muted">Last ned alle oppgaver, lister og vaner som en JSON-fil, eller importer en tidligere eksport.</p>
+        <p className="muted">
+          Last ned alle oppgaver, lister og vaner som en JSON-fil, eller importer en tidligere
+          eksport.
+        </p>
         <div className="choice-row">
           <Button icon={<Download size={16} aria-hidden="true" />} onClick={handleExport}>
             Eksporter

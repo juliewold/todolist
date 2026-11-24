@@ -61,10 +61,7 @@ describe("selectOpenTasks", () => {
 
 describe("selectCompletedTasks", () => {
   it("returns completed tasks, newest first", () => {
-    expect(selectCompletedTasks(tasks).map((item) => item.id)).toEqual([
-      "today-done",
-      "old-done",
-    ]);
+    expect(selectCompletedTasks(tasks).map((item) => item.id)).toEqual(["today-done", "old-done"]);
   });
 });
 

@@ -40,15 +40,12 @@ export function DataProvider({ repository, children }: DataProviderProps) {
   }, [repository]);
 
   /** Applies the change locally straight away, then persists it. */
-  const commit = useCallback(
-    (action: SnapshotAction, persist: () => Promise<void>) => {
-      setSnapshot((current) => (current ? snapshotReducer(current, action) : current));
-      persist().catch((error: unknown) => {
-        setSaveError(errorMessage(error));
-      });
-    },
-    [],
-  );
+  const commit = useCallback((action: SnapshotAction, persist: () => Promise<void>) => {
+    setSnapshot((current) => (current ? snapshotReducer(current, action) : current));
+    persist().catch((error: unknown) => {
+      setSaveError(errorMessage(error));
+    });
+  }, []);
 
   const actions = useMemo<DataActions>(() => {
     const current = (): DataSnapshot | null => snapshot;

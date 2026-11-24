@@ -3,7 +3,13 @@ import { Button } from "../../components/Button";
 import { Dialog } from "../../components/Dialog";
 import { HABIT_COLORS } from "../../domain/colors";
 import { createId } from "../../domain/ids";
-import type { GoalPeriod, Habit, HabitColorName, HabitIconName, HabitKind } from "../../domain/types";
+import type {
+  GoalPeriod,
+  Habit,
+  HabitColorName,
+  HabitIconName,
+  HabitKind,
+} from "../../domain/types";
 import { HABIT_ICON_LABELS, HABIT_ICON_NAMES, HABIT_ICONS } from "./habitIcons";
 
 interface HabitEditorProps {

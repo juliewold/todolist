@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { DataSnapshot, Habit, HabitEntry, Task, TaskList } from "../domain/types";
+import type { Habit, HabitEntry, Task, TaskList } from "../domain/types";
 import type { TodoRepository } from "./repository";
 
 /*
